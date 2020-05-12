@@ -1,0 +1,10 @@
+x,y,a,b,c = gets.split.map(&:to_i)
+p_ = []
+q = []
+r = []
+p_ = gets.split.map(&:to_i)
+q = gets.split.map(&:to_i)
+r = gets.split.map(&:to_i)
+sum_1 = 0
+sum_2 = 0
+sum_1 = (p_ & r).sort.reverse.slice(0..(x-1)).inject(:+)
