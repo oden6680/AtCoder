@@ -1,0 +1,5 @@
+n=int(input())
+h=format(int(n/3600),"02")
+m=format(int((n/60)%60),"02")
+s=format(int(n%60),"02")
+print(str(h)+":"+str(m)+":"+str(s))
