@@ -1,23 +1,34 @@
-N = int(input())
-ar =  set()
+def factorization(n):#素因数分解
+    arr = []
+    temp = n
+    for i in range(2, int(-(-n**0.5//1))+1):
+        if temp%i==0:
+            cnt=0
+            while temp%i==0:
+                cnt+=1
+                temp //= i
+            arr.append([i, cnt])
 
-def is_prime(q):
-    if q == 1:
-        return True
-    q = abs(q)
-    if q == 2: return True
-    if q < 2 or q&1 == 0: return False
-    return pow(2, q-1, q) == 1
+    if temp!=1:
+        arr.append([temp, 1])
+
+    if arr==[]:
+        arr.append([n, 1])
+
+    return arr
+
+N = int(input())
+fac = factorization(N)
+cnt = 0
+
 if N == 1:
     print(0)
     exit()
-while N > 0:
-    if is_prime(N):
-        ar.add(N)
-        break
-    for i in range(2,(N//2)+2):
-        if N%i == 0 and (not i in ar):
-            ar.add(i)
-            break
-    N = N//i
-print(len(ar))
+
+for i in range(len(fac)):
+    e = 1
+    while fac[i][1]-e >= 0:
+        fac[i][1] -= e
+        e += 1
+        cnt += 1 
+print(cnt)
